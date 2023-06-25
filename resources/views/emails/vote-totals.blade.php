@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Voting System Verification Code</title>
-</head>
-<body>
-    <h2>Verification Code</h2>
-    <p>Thank you for registering. Your vote verification code is: {{ $verificationCode }}</p>
-    <p>Please input this code to verify your email address.</p>
-</body>
-</html>
+<!-- resources/views/emails/daily_totals.blade.php -->
+
+@extends('layouts.mail')
+
+@section('content')
+    <h2>Daily Vote Totals</h2>
+    
+    <p>Here are the vote totals for today:</p>
+    
+    <ul>
+        @foreach($content as $optionId => $voteCount)
+            <li>Option {{ $optionId }} has {{ $voteCount }} votes</li>
+        @endforeach
+    </ul>
+@endsection
